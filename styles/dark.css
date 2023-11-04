@@ -10,3 +10,25 @@
     чем стили в медиазапросе предпочтений пользователя
   */
 }
+:root.theme-dark {
+  --accent-color: #ff0070;
+  --bg-color: #000028;
+  --text-color: #F1B2CE;
+  --title-color: #DB00FF;
+  --hover-color: rgba(255, 0, 112, 0.40);
+}
+.theme-dark .page {
+  background-color: var(--bg-color);
+}
+.header {
+  background-image: url(../images/cover-image-dark.png);
+}
+.decoration {
+  display: inline;
+}
+.title-decor {
+  color: var(--bg-color);
+}
+.header__theme-menu-button:hover {
+  border: 1px solid var(--hover-color);
+}

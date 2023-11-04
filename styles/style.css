@@ -1,15 +1,68 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
-.page {
+.page {  
   background-color: var(--bg-color);
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
 }
 .header {
-  background-image: url(../images/cover-image-dark.png);
+  background-image: url(../images/cover-image.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
   display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows: repeat(2,1fr), auto;
+  grid-template-areas: 
+  ". . . theme"   
+  "title title title title"
+  ". . decor  decor";
+  position: relative;
+  padding-block-end: 17.6vw;
+  padding-inline-end: 10px;
+}
+.header::before {
+  content: "";
+  border-width: 1px 1px 0px 0px;
+  border-style: solid;
+  border-color: var(--accent-color);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  inline-size: 25.038px;
+  block-size: 24.999px;
+
 }
 .header::after {
-  
+  content: "";
+  border-width: 0px 0px 1px 1px;
+  border-style: solid;
+  border-color: var(--accent-color);
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  inline-size: 25.038px;
+  block-size: 24.999px;
+}
+.decoration {
+  color: var(--accent-color);
+  font-family: IBM Plex Mono, Arial, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 138.889%;
+  position: absolute;
+  right: 38px;
+  top: 10px;
+}
+.decoration::after {
+  content: "\2022";
+  filter: drop-shadow(0px 0px 4px var(--accent-color));
+  position: absolute;
+  left: 43px;
+}
+.header__theme-menu {
+  grid-area: theme;
+  padding-block-start: 20vw;
 }
 .header__theme-menu-button {
   border: none;
@@ -21,12 +74,23 @@
   line-height: 100%;
   font-style: normal;
   font-weight: 400;
+  grid-area: button;
+  padding-inline: 13px;
+  margin-block-end: 10px;
 }
 .header__theme-menu-button_active {
-  border: 1px solid var(--accent-color)
+  border: 1px solid var(--accent-color);
+  pointer-events: none
 }
-.header__theme-menu-list {
-  gap: 10px;
+.header__theme-menu-button:hover {
+  border: 1px solid var(--hover-color);
+}
+.header__theme-menu-button:focus-visible {
+  border: none;
+  border-block-end: 1px solid var(--accent-color);
+}
+.header__theme-menu-list:last-child {
+  margin-block-end: 0px;
 }
 .header-title {
   color: var(--title-color);
@@ -35,7 +99,10 @@
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   font-style: normal;
   font-weight: 700;
-  line-height: 82.5%; 
+  line-height: 82.5%;
+  grid-area: title; 
+  margin-block-start: 17.3vw;
+  margin-block-end: 14.67vw;
 }
 .title-decor {
   color: var(--bg-color);
@@ -45,5 +112,166 @@
   font-style: normal;
   font-weight: 700;
   line-height: 130%;
-  max-inline-size: 94.7vw;;
+  grid-area: decor;
+}
+.sections {
+  background-color: var(--bg-color);
+  padding-inline: 10px;
+  margin-block-start: 7.81vw;
+}
+.main-title {
+  margin-block-start: 10.7vw;
+  color: var(--accent-color);
+  font-family: IBM Plex Mono, Arial, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+  grid-area: title;
+  margin-block-end: 5.3vw;
+}
+.content {
+  color: var(--text-color);
+  font-family: IBM Plex Mono, Arial, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  margin-block-start: 10px;
+  margin-block-end: 20px;
+}
+.link-content {
+  text-decoration: none;
+  text-shadow: 2px 1px 0 var(--accent-color);
+}
+.link-content:hover {
+  text-decoration: underline;
+}
+.link-content:focus-visible {
+  border: 1px solid var(--accent-color);
+}
+.content-decor {
+  color: var(--bg-color);
+  background-color: var(--accent-color);
+  font-family: IBM Plex Mono, Arial, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 10px;
+  grid-template-areas:
+  "sea"
+  "ice-cream"
+  "tape"
+  "books"
+  "street";
+}
+.picture_sea {
+  grid-area: sea;
+  max-inline-size: 94.64vw;
+}
+.picture_ice-cream {
+  grid-area: ice-cream;
+  max-inline-size: 94.64vw;
+}
+.picture_tape {
+  grid-area: tape;
+  max-inline-size: 94.64vw;
+}
+.picture_books {
+  grid-area: books;
+  max-inline-size: 94.64vw;
+}
+.picture_street {
+  grid-area: street;
+  max-inline-size: 94.64vw;
+}
+.footer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block-start: 10.6vw;
+  border-top: 1px solid var(--accent-color);
+  inline-size: 100%;
+  block-size: clamp(41rem, 36.3775rem + 19.7227vw, 49rem);;
+}
+.footer::before {
+  content: "";
+  border-width: 1px 1px 0px 0px;
+  border-style: solid;
+  border-color: var(--accent-color);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  inline-size: 25.038px;
+  block-size: 24.999px;
+
+}
+.footer::after {
+  content: " ";
+  border-width: 0px 0px 1px 1px;
+  border-style: solid;
+  border-color: var(--accent-color);
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  inline-size: 25.038px;
+  block-size: 24.999px;
+}
+.footer-title {
+  color: var(--title-color);
+  text-shadow: 3px 2px 0 var(--accent-color);
+  font-family: IBM Plex Mono;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-style: normal;
+  font-weight: 700;
+}
+@media (min-width: 768px) {
+  .header:before {
+    top: 20px;
+    right: 20px;
+  }
+  .header:after {
+    bottom: 20px;
+    left: 20px;
+  }
+  .footer:before {
+    top: 20px;
+    right: 20px;
+  }
+  .footer:after {
+    bottom: 20px;
+    left: 20px;
+  }
+  .decoration {
+    top: 20px;
+    right: 48px;
+  }
+  .header .title-decor {
+    inline-size: 47.4vw;
+  }
+  .section-honest {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 1fr;
+  }
+  .main-title {
+    grid-column-start: 1;
+    grid-column-end: span 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    align-self: start;
+  }
+  .title-decor {
+    grid-column-end: -1;
+    grid-row-start: 3;
+  }
+  .section-odd .main-title {
+    inline-size: 15.73vw;
+  }
 }
