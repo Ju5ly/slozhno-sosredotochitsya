@@ -22,6 +22,7 @@
   position: relative;
   margin-block-end: 17.6vw;
   padding-inline-end: 10px;
+  block-size: 100vh;
 }
 .header::before {
   content: "";
