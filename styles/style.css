@@ -9,12 +9,12 @@
 .header {
   background-image: url(../images/cover-image.png);
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   background-position: bottom;
   display: grid;
   align-items: center;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(3,300px);
+  grid-template-rows: repeat(3,33.4vh);
   grid-template-areas: 
   "theme"   
   "title"
@@ -203,7 +203,7 @@
   margin-block-start: 10.6vw;
   border-top: 1px solid var(--accent-color);
   inline-size: 100%;
-  block-size: 100vw;
+  block-size: 100vh;
 }
 .footer::before {
   content: "";
@@ -330,10 +330,10 @@
     .header__theme-menu-list {
       display: flex;
     }
-    .header__theme-menu  {
+    .header__theme-menu {
       justify-self: center;
       align-self: start;
-      margin-block-start: 20px;
+      margin-block-start: 20px ;
     }
     .section-odd {
       display: grid;
