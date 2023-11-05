@@ -3,23 +3,24 @@
 .page {
   background-color: var(--bg-color);
   background-attachment: fixed;
+  inline-size: 100%;
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
 }
 .header {
-  block-size: 100vw;
   background-image: url(../images/cover-image.png);
   background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
+  background-size: 100%;
+  background-position: bottom;
   display: grid;
-  grid-template-columns: repeat(2,1fr);
-  grid-template-rows: repeat(2,1fr), auto;
+  align-items: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3,300px);
   grid-template-areas: 
-  ". . . theme"   
-  "title title title title"
-  ". . decor  decor";
+  "theme"   
+  "title"
+  "decor";
   position: relative;
-  padding-block-end: 17.6vw;
+  margin-block-end: 17.6vw;
   padding-inline-end: 10px;
 }
 .header::before {
@@ -64,7 +65,7 @@
 }
 .header__theme-menu {
   grid-area: theme;
-  padding-block-start: 20vw;
+  justify-self: end;
 }
 .header__theme-menu-button {
   border: none;
@@ -103,8 +104,6 @@
   font-weight: 700;
   line-height: 82.5%;
   grid-area: title;
-  margin-block-start: 17.3vw;
-  margin-block-end: 14.67vw;
 }
 .title-decor {
   color: var(--bg-color);
@@ -115,6 +114,7 @@
   font-weight: 700;
   line-height: 130%;
   grid-area: decor;
+  justify-self: end;
 }
 .sections {
   background-color: var(--bg-color);
@@ -259,7 +259,6 @@
   }
   .header .title-decor {
     inline-size: 47.4vw;
-    margin-block-start: 21vw;
   }
   .section-honest {
     display: grid;
@@ -328,8 +327,13 @@
     grid-row-end: 4;
   }
   @media (min-width: 1024px) {
-    .header .title-decor {
-      margin-block-start: 14vw;
+    .header__theme-menu-list {
+      display: flex;
+    }
+    .header__theme-menu  {
+      justify-self: center;
+      align-self: start;
+      margin-block-start: 20px;
     }
     .section-odd {
       display: grid;
