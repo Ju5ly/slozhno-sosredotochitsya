@@ -1,11 +1,12 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-.page {  
+
+.page {
   background-color: var(--bg-color);
   background-attachment: fixed;
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
 }
 .header {
-  block-size: 100%;
+  block-size: 100vw;
   background-image: url(../images/cover-image.png);
   background-repeat: no-repeat;
   background-position: center;
@@ -101,7 +102,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: 82.5%;
-  grid-area: title; 
+  grid-area: title;
   margin-block-start: 17.3vw;
   margin-block-end: 14.67vw;
 }
@@ -176,6 +177,9 @@
   "books"
   "street";
 }
+.images {
+  max-inline-size: 94.5vw;
+}
 .picture_sea {
   grid-area: sea;
 }
@@ -199,7 +203,7 @@
   margin-block-start: 10.6vw;
   border-top: 1px solid var(--accent-color);
   inline-size: 100%;
-  block-size: 100%;
+  block-size: 100vw;
 }
 .footer::before {
   content: "";
@@ -255,6 +259,7 @@
   }
   .header .title-decor {
     inline-size: 47.4vw;
+    margin-block-start: 21vw;
   }
   .section-honest {
     display: grid;
@@ -323,6 +328,9 @@
     grid-row-end: 4;
   }
   @media (min-width: 1024px) {
+    .header .title-decor {
+      margin-block-start: 14vw;
+    }
     .section-odd {
       display: grid;
       gap: 20px;
