@@ -10,3 +10,21 @@
     чем стили в медиазапросе предпочтений пользователя
   */
 }
+:root.theme-light {
+  --accent-color: #FF8DCB;
+  --bg-color: #FFF1F7;
+  --text-color: #353430;
+  --title-color: #FFC2E6;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --accent-color: #FF8DCB;
+    --bg-color: #FFF1F7;
+    --text-color: #353430;
+    --title-color: #FFC2E6;
+    --hover-color: rgba(50, 49, 45, 0.40);
+  }
+  .header {
+    background-image: url(../images/cover-image-light.png);
+  }
+}
